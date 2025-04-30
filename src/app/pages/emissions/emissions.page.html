@@ -2,9 +2,8 @@
   <h2>Weekly Emissions</h2>
 
   <canvas baseChart
-    [datasets]="[{ data: barChartData, label: 'CO₂ (kg)' }]"
-    [labels]="barChartLabels"
+    [data]="{ labels: barChartLabels, datasets: [{ data: barChartData, label: 'CO₂ (kg)' }] }"
     [options]="barChartOptions"
-    chartType="bar">
+    [type]="'bar'">
   </canvas>
 </ion-content>
