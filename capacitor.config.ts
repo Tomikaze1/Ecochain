@@ -1,9 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
-const config: CapacitorConfig = {
+const config: CapacitorConfig & { bundledWebRuntime?: boolean } = {
   appId: 'io.ionic.starter',
   appName: 'ecochain-mobile',
-  webDir: 'www'
+  webDir: 'www',
+  bundledWebRuntime: false
 };
-
-export default config;

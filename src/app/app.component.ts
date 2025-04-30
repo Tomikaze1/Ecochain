@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private storage: Storage, private router: Router) {
+    this.initStorage(); // ✅ Initialize storage first
+  }
+
+  async initStorage() {
+    await this.storage.create(); // ✅ Required!
     this.scheduleLocalNotification();
   }
 

@@ -21,7 +21,6 @@ export class HomePage implements OnInit {
     this.recentTrip = trips[trips.length - 1] || null;
     this.totalEmissions = trips.reduce((sum: number, t: any) => sum + t.emissions, 0);
 
-    // Optional: trigger it on init
     this.scheduleTestNotification();
   }
 
