@@ -1,13 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>score</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <h2>Your Eco Score</h2>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">score</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ emoji }} {{ rating }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Total Distance:</strong> {{ totalDistance }} km</p>
+      <p><strong>Total Emissions:</strong> {{ totalEmissions.toFixed(2) }} kg</p>
+      <p><strong>Efficiency:</strong> {{ efficiency.toFixed(2) }} kg/km</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" routerLink="/trip-entry">Log New Trip</ion-button>
 </ion-content>

@@ -1,13 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>summary</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding" *ngIf="trip">
+  <h2>Latest Trip Summary</h2>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">summary</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-content>
+      <p><strong>Date:</strong> {{ trip.date | date:'short' }}</p>
+      <p><strong>Distance:</strong> {{ trip.distance }} km</p>
+      <p><strong>Fuel:</strong> {{ trip.fuel }}</p>
+      <p><strong>CO₂ Emitted:</strong> {{ trip.emissions }} kg</p>
+      <p><strong>Fuel Cost:</strong> ₱{{ fuelCost.toFixed(2) }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

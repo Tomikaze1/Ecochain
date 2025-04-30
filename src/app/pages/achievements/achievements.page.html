@@ -1,13 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>achievements</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <h2>Your Achievements</h2>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">achievements</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Summary</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Total Trips:</strong> {{ totalTrips }}</p>
+      <p><strong>Total Distance:</strong> {{ totalKm }} km</p>
+      <p><strongTotal Emissions:</strong> {{ totalEmissions.toFixed(2) }} kg CO₂</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item-divider>Unlocked Badges</ion-item-divider>
+    <ion-item *ngFor="let badge of badgeList">
+      <ion-label>{{ badge }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

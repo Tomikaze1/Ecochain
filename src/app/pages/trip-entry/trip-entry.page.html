@@ -1,13 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>trip-entry</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <h2>Enter New Trip</h2>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">trip-entry</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item>
+    <ion-label position="floating">Distance (km)</ion-label>
+    <ion-input type="number" [(ngModel)]="distance"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="getCurrentLocation()">Use Current Location</ion-button>
+  <ion-button expand="block" (click)="submitTrip()">Submit Trip</ion-button>
+
+  <div *ngIf="co2Emitted !== null" class="ion-padding">
+    <h3>Estimated Emissions:</h3>
+    <p><strong>{{ co2Emitted }} kg CO₂</strong></p>
+  </div>
 </ion-content>

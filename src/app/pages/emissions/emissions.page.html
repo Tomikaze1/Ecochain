@@ -1,13 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>emissions</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <h2>Weekly Emissions</h2>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">emissions</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <canvas baseChart
+    [datasets]="[{ data: barChartData, label: 'CO₂ (kg)' }]"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    chartType="bar">
+  </canvas>
 </ion-content>
