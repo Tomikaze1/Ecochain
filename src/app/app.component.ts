@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { Storage } from '@ionic/storage-angular'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,7 @@ import { LocalNotifications } from '@capacitor/local-notifications';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {
+  constructor(private storage: Storage, private router: Router) {
     this.scheduleLocalNotification();
   }
 
@@ -25,5 +27,10 @@ export class AppComponent {
         ],
       });
     }
+  }
+
+  async logout() {
+    await this.storage.clear(); 
+    this.router.navigateByUrl('/login', { replaceUrl: true });
   }
 }
