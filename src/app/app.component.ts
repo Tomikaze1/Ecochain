@@ -1,29 +1,29 @@
 import { Component } from '@angular/core';
-import { PushNotifications } from '@capacitor/push-notifications';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  standalone:false,
+  standalone: false,
 })
 export class AppComponent {
   constructor() {
-    this.registerPush();
+    this.scheduleLocalNotification();
   }
 
-  registerPush() {
-    PushNotifications.requestPermissions().then(result => {
-      if (result.receive === 'granted') {
-        PushNotifications.register();
-      }
-    });
-
-    PushNotifications.addListener('registration', token => {
-      console.log('Push token:', token.value);
-    });
-
-    PushNotifications.addListener('pushNotificationReceived', notification => {
-      alert('🔔 Notification: ' + notification.title);
-    });
+  async scheduleLocalNotification() {
+    const perms = await LocalNotifications.requestPermissions();
+    if (perms.display === 'granted') {
+      await LocalNotifications.schedule({
+        notifications: [
+          {
+            title: 'EcoChain Alert',
+            body: 'Local notification test ✅',
+            id: 1,
+            schedule: { at: new Date(Date.now() + 5000) },
+          },
+        ],
+      });
+    }
   }
 }
